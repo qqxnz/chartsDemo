@@ -20,9 +20,24 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) UILabel *thursdayLab;
 @property (nonatomic) UILabel *fridayLab;
 @property (nonatomic) UILabel *saturdayLab;
-
+///折线颜色
 @property (nonatomic) UIColor *lineColor;
+///折线点颜色
 @property (nonatomic) UIColor *pointColor;
+///左侧数字颜色
+@property (nonatomic) UIColor *leftTextColor;
+///左侧数字字体
+@property (nonatomic) UIFont *leftTextFont;
+///下侧数字颜色
+@property (nonatomic) UIColor *downTextColor;
+///下侧数字字体
+@property (nonatomic) UIFont *downTextFont;
+
+///目标线数据
+@property (nonatomic) NSNumber *targetNumber;
+
+///目标线颜色
+@property (nonatomic) UIColor *targetColor;
 
 ///设置数据并绘制
 -(void)showWithData:(NSMutableArray *)dataArray;

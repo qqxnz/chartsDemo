@@ -24,15 +24,21 @@
     
 //    NSMutableArray *dataList = [NSMutableArray arrayWithObjects:[[NSNumber alloc]initWithFloat:78.0],[[NSNumber alloc]initWithFloat:62.6],[[NSNumber alloc]initWithFloat:66.6],[[NSNumber alloc]initWithFloat:65],[[NSNumber alloc]initWithFloat:54.2],[[NSNumber alloc]initWithFloat:71.794876],[[NSNumber alloc]initWithFloat:56.7],[[NSNumber alloc]initWithFloat:65],[[NSNumber alloc]initWithFloat:36.0], nil];
     
-        NSMutableArray *dataList = [NSMutableArray arrayWithObjects:[[NSNumber alloc]initWithFloat:78.0],[[NSNumber alloc]initWithFloat:62.6],[[NSNumber alloc]initWithFloat:66.6],[[NSNumber alloc]initWithFloat:65],[[NSNumber alloc]initWithFloat:54.2],[[NSNumber alloc]initWithFloat:71.794876],[[NSNumber alloc]initWithFloat:56.7],[[NSNumber alloc]initWithFloat:65],[[NSNumber alloc]initWithFloat:36.0], nil];
+        NSMutableArray *dataList = [NSMutableArray arrayWithObjects:[[NSNumber alloc]initWithFloat:78.0],[[NSNumber alloc]initWithFloat:62.6],[[NSNumber alloc]initWithFloat:66.6],[[NSNumber alloc]initWithFloat:65],[[NSNumber alloc]initWithFloat:103.2],[[NSNumber alloc]initWithFloat:71.794876],[[NSNumber alloc]initWithFloat:56.7],[[NSNumber alloc]initWithFloat:65],[[NSNumber alloc]initWithFloat:36.0], nil];
 
     
-//
-//    [_ChartsView setLineColor:[UIColor blueColor]];
-//    [_ChartsView setPointColor:[UIColor blueColor]];
-//    
-//    [_ChartsView setGradientColor:[UIColor orangeColor] withEndColor:[UIColor greenColor]];
+
+    [_ChartsView setLineColor:[UIColor blueColor]];
+    [_ChartsView setPointColor:[UIColor blueColor]];
+    [_ChartsView setTargetNumber:[NSNumber numberWithFloat:65.0]];
+    [_ChartsView setTargetColor:[UIColor redColor]];
+    [_ChartsView setLeftTextColor:[UIColor grayColor]];
+    [_ChartsView setDownTextColor:[UIColor orangeColor]];
+    [_ChartsView setGradientColor:[UIColor orangeColor] withEndColor:[UIColor greenColor]];
     
+    
+    [_ChartsView setLeftTextFont:[UIFont systemFontOfSize:14]];
+    [_ChartsView setDownTextFont:[UIFont systemFontOfSize:14]];
     
     [_ChartsView showWithData:dataList];
 

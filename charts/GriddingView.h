@@ -16,8 +16,15 @@ typedef void (^GriddingViewLeftNumberCallBack)(void);
 
 @interface GriddingView : UIView
 
+///折线颜色
 @property (nonatomic) UIColor *lineColor;
+///折线点颜色
 @property (nonatomic) UIColor *pointColor;
+
+///目标线数据
+@property (nonatomic) NSNumber *targetNumber;
+///目标线颜色
+@property (nonatomic) UIColor *targetColor;
 
 @property (nonatomic) NSMutableArray *dataArray;
 @property (nonatomic) NSMutableArray *pointArray;

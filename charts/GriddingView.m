@@ -56,6 +56,24 @@
         pointOBJ.pointY = y;
         [self.leftPointArray addObject:pointOBJ];
     }
+    
+    ///画目标线
+    if(self.targetNumber){
+        float targetLineHeight = [self.targetNumber floatValue] * bl;
+        UIView *targetLine = [[UIView alloc]initWithFrame:CGRectMake(0, self.bounds.size.height + heightAdd - targetLineHeight, self.frame.size.width, 1)];
+        [self addSubview:targetLine];
+        if(self.targetColor){
+            targetLine.backgroundColor = self.targetColor;
+        }else{
+            targetLine.backgroundColor = [UIColor redColor];
+        }
+        self.leftDataArray[0] = self.targetNumber;
+        PointObject *pointOBJ = [[PointObject alloc]init];
+        pointOBJ.pointX = 0;
+        pointOBJ.pointY = self.bounds.size.height + heightAdd - targetLineHeight;
+        self.leftPointArray[0] = pointOBJ;
+    }
+    
     ///回调左侧lab数据
     if(self.callback){
         self.callback();
@@ -98,9 +116,9 @@
     for(int i = 0 ; i < _dataArray.count ; i++){
         NSNumber *number = (NSNumber *)_dataArray[i];
         float height = [number floatValue] * bl;
-//        NSLog(@"height:%f",height);
         CGPoint pp = CGPointMake(i * lineWith, self.bounds.size.height + heightAdd - height);
         PointObject *pointOBJ = [[PointObject alloc]init];
+        NSLog(@"PX:%f   PY:%f",pp.x,pp.y);
         pointOBJ.pointX = pp.x;
         pointOBJ.pointY = pp.y;
         [self.pointArray addObject:pointOBJ];
@@ -108,8 +126,8 @@
         
     }
     
-    
 
+    
     
 }
 
