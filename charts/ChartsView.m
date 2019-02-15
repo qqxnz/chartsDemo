@@ -201,8 +201,13 @@
             betweenMin = between;
             selectIndex = i;
         }
-        NSLog(@"index:%i  差：%f 最小：%f  选项：%i pointX:%f",i,between,betweenMin,selectIndex,pointObj.pointX);
+//        NSLog(@"index:%i  差：%f 最小：%f  选项：%i pointX:%f",i,between,betweenMin,selectIndex,pointObj.pointX);
 
+    }
+    
+    NSLog(@"最终选择%d",selectIndex);
+    if(selectIndex < 2){
+        selectIndex = 2;
     }
     
     PointObject *selectPoint = _griddingView.pointArray[selectIndex - 1];
