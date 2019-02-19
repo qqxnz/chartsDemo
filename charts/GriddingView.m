@@ -32,7 +32,7 @@
     CGFloat lineHeight = (self.bounds.size.height - 20) / 4.0;
     
     float top = [self returnMax] * 2.0;
-    float heightAdd  = 50.0; ///高度偏移
+    float heightAdd  = 0.0; ///高度偏移
     float bl = self.bounds.size.height / top * 2.0;
     NSLog(@"top:%f",top);
     NSLog(@"bl:%f",bl);

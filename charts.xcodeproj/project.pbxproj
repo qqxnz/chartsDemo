@@ -18,6 +18,11 @@
 		A932EFF521F020C500454108 /* ChartsView.m in Sources */ = {isa = PBXBuildFile; fileRef = A932EFF421F020C500454108 /* ChartsView.m */; };
 		A932EFF821F0299500454108 /* GriddingView.m in Sources */ = {isa = PBXBuildFile; fileRef = A932EFF721F0299500454108 /* GriddingView.m */; };
 		A932EFFB21F068BB00454108 /* GradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = A932EFFA21F068BB00454108 /* GradientView.m */; };
+		A9A4D5C1221A884F00456CBD /* LVLineChartsView.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A4D5C0221A884F00456CBD /* LVLineChartsView.m */; };
+		A9A4D5C4221A88C200456CBD /* LVLineChartsObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A4D5C3221A88C200456CBD /* LVLineChartsObject.m */; };
+		A9A4D5C7221A8ECB00456CBD /* LVLineChartsUIConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A4D5C6221A8ECB00456CBD /* LVLineChartsUIConfig.m */; };
+		A9A4D5D0221A9DE900456CBD /* LVDrawLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A4D5CF221A9DE900456CBD /* LVDrawLineView.m */; };
+		A9D41032221BDE7500F2E1D6 /* LVLineBackGroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D41031221BDE7500F2E1D6 /* LVLineBackGroundView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +65,16 @@
 		A932EFF721F0299500454108 /* GriddingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GriddingView.m; sourceTree = "<group>"; };
 		A932EFF921F068BB00454108 /* GradientView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GradientView.h; sourceTree = "<group>"; };
 		A932EFFA21F068BB00454108 /* GradientView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GradientView.m; sourceTree = "<group>"; };
+		A9A4D5BF221A884F00456CBD /* LVLineChartsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LVLineChartsView.h; sourceTree = "<group>"; };
+		A9A4D5C0221A884F00456CBD /* LVLineChartsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LVLineChartsView.m; sourceTree = "<group>"; };
+		A9A4D5C2221A88C200456CBD /* LVLineChartsObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LVLineChartsObject.h; sourceTree = "<group>"; };
+		A9A4D5C3221A88C200456CBD /* LVLineChartsObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LVLineChartsObject.m; sourceTree = "<group>"; };
+		A9A4D5C5221A8ECB00456CBD /* LVLineChartsUIConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LVLineChartsUIConfig.h; sourceTree = "<group>"; };
+		A9A4D5C6221A8ECB00456CBD /* LVLineChartsUIConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LVLineChartsUIConfig.m; sourceTree = "<group>"; };
+		A9A4D5CE221A9DE900456CBD /* LVDrawLineView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LVDrawLineView.h; sourceTree = "<group>"; };
+		A9A4D5CF221A9DE900456CBD /* LVDrawLineView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LVDrawLineView.m; sourceTree = "<group>"; };
+		A9D41030221BDE7500F2E1D6 /* LVLineBackGroundView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LVLineBackGroundView.h; sourceTree = "<group>"; };
+		A9D41031221BDE7500F2E1D6 /* LVLineBackGroundView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LVLineBackGroundView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +129,7 @@
 				A932EFC221F0207200454108 /* AppDelegate.m */,
 				A932EFC421F0207200454108 /* ViewController.h */,
 				A932EFC521F0207200454108 /* ViewController.m */,
+				A9A4D5BB221A87FA00456CBD /* LVCharts */,
 				A932EFF321F020C500454108 /* ChartsView.h */,
 				A932EFF421F020C500454108 /* ChartsView.m */,
 				A932EFF621F0299500454108 /* GriddingView.h */,
@@ -145,6 +161,23 @@
 				A932EFE721F0207400454108 /* Info.plist */,
 			);
 			path = chartsUITests;
+			sourceTree = "<group>";
+		};
+		A9A4D5BB221A87FA00456CBD /* LVCharts */ = {
+			isa = PBXGroup;
+			children = (
+				A9A4D5BF221A884F00456CBD /* LVLineChartsView.h */,
+				A9A4D5C0221A884F00456CBD /* LVLineChartsView.m */,
+				A9A4D5C2221A88C200456CBD /* LVLineChartsObject.h */,
+				A9A4D5C3221A88C200456CBD /* LVLineChartsObject.m */,
+				A9A4D5C5221A8ECB00456CBD /* LVLineChartsUIConfig.h */,
+				A9A4D5C6221A8ECB00456CBD /* LVLineChartsUIConfig.m */,
+				A9A4D5CE221A9DE900456CBD /* LVDrawLineView.h */,
+				A9A4D5CF221A9DE900456CBD /* LVDrawLineView.m */,
+				A9D41030221BDE7500F2E1D6 /* LVLineBackGroundView.h */,
+				A9D41031221BDE7500F2E1D6 /* LVLineBackGroundView.m */,
+			);
+			path = LVCharts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,10 +310,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9D41032221BDE7500F2E1D6 /* LVLineBackGroundView.m in Sources */,
+				A9A4D5D0221A9DE900456CBD /* LVDrawLineView.m in Sources */,
 				A932EFC621F0207200454108 /* ViewController.m in Sources */,
 				A932EFF521F020C500454108 /* ChartsView.m in Sources */,
 				A932EFFB21F068BB00454108 /* GradientView.m in Sources */,
+				A9A4D5C1221A884F00456CBD /* LVLineChartsView.m in Sources */,
 				A932EFD121F0207400454108 /* main.m in Sources */,
+				A9A4D5C4221A88C200456CBD /* LVLineChartsObject.m in Sources */,
+				A9A4D5C7221A8ECB00456CBD /* LVLineChartsUIConfig.m in Sources */,
 				A932EFC321F0207200454108 /* AppDelegate.m in Sources */,
 				A932EFF821F0299500454108 /* GriddingView.m in Sources */,
 			);
@@ -456,6 +494,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T9RGZS27C8;
 				INFOPLIST_FILE = charts/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -473,6 +512,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T9RGZS27C8;
 				INFOPLIST_FILE = charts/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

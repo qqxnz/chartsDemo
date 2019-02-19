@@ -27,7 +27,7 @@
     NSLog(@"%f",self.bounds.size.height);
     
     float top = [self returnMax] * 2.0;
-    float heightAdd  = 50.0; ///高度偏移
+    float heightAdd  = 0.0; ///高度偏移
     float bl = self.bounds.size.height / top * 2.0;
     NSLog(@"MAX:%f",top);
     NSLog(@"bl:%f",bl);
@@ -59,6 +59,7 @@
     [path fill];
     
 }
+
 ///获取最大值
 -(float)returnMax{
     NSNumber *max;
