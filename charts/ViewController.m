@@ -79,7 +79,7 @@
     config.leftLabTextColor = [UIColor colorWithRed:70/255.0 green:210/255.0 blue:185/255.0 alpha:1.0];
     
     config.targetLabFont = [UIFont systemFontOfSize:8];
-    config.targetLabTextColor = UIColor.yellowColor;
+    config.targetLabTextColor = UIColor.orangeColor;
     config.targetLineColor = UIColor.blueColor;
     
     [_lineChartsView setupDataSource:object withUIConfgi:config];
