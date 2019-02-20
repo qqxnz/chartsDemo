@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LVLineChartsObject : NSObject
-
+@property (nonatomic,assign) float defaultMax;
 @property (nonatomic,assign) float max;
 @property (nonatomic,assign) float min;
 @property (nonatomic,retain) NSArray *dataSources;

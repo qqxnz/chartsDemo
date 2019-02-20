@@ -48,14 +48,17 @@
     UIBezierPath* path = [UIBezierPath bezierPath];
     path.lineWidth = _config.lineWidth;
     
+
+    int pointInt = 0;
     for(int i = 0 ; i < _pointsArray.count ; i++){
         NSValue *value = (NSValue *)_pointsArray[i];
-        if(i == 0){
-            [path moveToPoint:[value CGPointValue]];
-        }else{
+        if([value CGPointValue].y != self.bounds.size.height){
+            if(pointInt == 0){
+                [path moveToPoint:[value CGPointValue]];
+            }
             [path addLineToPoint:[value CGPointValue]];
+            pointInt++;
         }
-        
         [self setVerticalLine:CGPointMake([value CGPointValue].x, 0) withEndPoint:CGPointMake([value CGPointValue].x, self.bounds.size.height)];
     }
     
@@ -67,14 +70,7 @@
     }
 
     [path stroke];
-    
-    [path addLineToPoint:CGPointMake(self.bounds.size.width, self.bounds.size.height)];
-    [path addLineToPoint:CGPointMake(0, self.bounds.size.height)];
-    [path closePath];
-    
-    [[UIColor clearColor] set];
-    [path stroke];
-    
+
     
     [[UIColor clearColor] set];
     [path fill];
@@ -83,8 +79,9 @@
     ///画点
     for(int i = 0 ; i < _pointsArray.count ; i++){
         NSValue *value = (NSValue *)_pointsArray[i];
-        [self setPoint:[value CGPointValue]];
-        
+        if([value CGPointValue].y != self.bounds.size.height){
+            [self setPoint:[value CGPointValue]];
+        }
     }
     
 }
@@ -115,7 +112,7 @@
     CGFloat dashLineConfig[] = {4.0, 1.0};
     [path setLineDash: dashLineConfig count: 2 phase: 0];
     
-    [[UIColor grayColor] set];
+    [[UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.1] set];
     [path stroke];
 }
 

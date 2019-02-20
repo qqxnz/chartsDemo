@@ -21,6 +21,9 @@
             max = number;
         }
     }
+    if([max floatValue] == 0.0){
+        return _defaultMax;
+    }
     return [max floatValue] * 1.3;
 }
 

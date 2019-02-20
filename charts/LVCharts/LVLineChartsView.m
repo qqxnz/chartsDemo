@@ -57,7 +57,7 @@
         CGPoint point = CGPointMake(i * _config.intervalWidth + _config.intervalWidth * 0.5, self.frame.size.height - 50 - [number floatValue] * _proportion);
         [_pointArray addObject:@(point)];
         ///底部文字
-        UILabel *lab = [[UILabel alloc]initWithFrame:CGRectMake(0, self.frame.size.height - 50, _config.intervalWidth, 50)];
+        UILabel *lab = [[UILabel alloc]initWithFrame:CGRectMake(0, self.frame.size.height - 50, 40, 50)];
         if( i < _data.descriptionDataSource.count ){
             lab.text = _data.descriptionDataSource[i];
         }
@@ -76,7 +76,7 @@
         targetLine.backgroundColor = _config.targetLineColor;
         [self addSubview:targetLine];
         ///目标文字
-        UILabel *lab = [[UILabel alloc]initWithFrame:CGRectMake(0, self.frame.size.height - 50, _config.intervalWidth, 50)];
+        UILabel *lab = [[UILabel alloc]initWithFrame:CGRectMake(0, self.frame.size.height - 50.0, 40.0, 40.0)];
         lab.text = [NSString stringWithFormat: @"%.1f",[targetNumber floatValue]];
         lab.textAlignment = NSTextAlignmentCenter;
         lab.center = CGPointMake(lab.center.x, y);
@@ -140,7 +140,7 @@
     
     ///水平线
     UIView * line = [[UIView alloc]initWithFrame:CGRectMake(40, self.frame.size.height - i * 50.0, self.bounds.size.width, 1)];
-    [line setBackgroundColor:[UIColor grayColor]];
+    [line setBackgroundColor:[UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.1]];
     [self addSubview:line];
     
     [lab setCenter: CGPointMake(lab.center.x, line.center.y)];
