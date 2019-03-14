@@ -134,11 +134,22 @@
             selectIndex = i;
         }
     }
-    [self.delegate touchAtIndex:selectIndex];
+
 //    NSLog(@"点击的是第%d",selectIndex);
     NSValue *value = (NSValue *) _pointsArray[selectIndex];
-    _lineView.center = CGPointMake([value CGPointValue].x, _lineView.center.y);
-    _lineView.backgroundColor = [UIColor redColor];
+    CGPoint point = [value CGPointValue];
+    _lineView.center = CGPointMake(point.x, _lineView.center.y);
+    ///无数据不显示选择线
+    if(point.y == self.bounds.size.height){
+        _lineView.backgroundColor = [UIColor clearColor];
+    }else{
+        _lineView.backgroundColor = [UIColor redColor];
+    }
+    
+    UIWindow * window=[[[UIApplication sharedApplication] delegate] window];
+    CGRect rect = [_lineView convertRect: _lineView.bounds toView:window];
+    
+    [self.delegate touchAtIndex:selectIndex withConvertRectTWindow:rect];
 
 }
 

@@ -24,6 +24,18 @@
     if([max floatValue] == 0.0){
         return _defaultMax;
     }
+    
+    NSNumber *maxTarget = [[NSNumber alloc]initWithFloat:-10000000.0];
+    for (NSNumber *target in self.targetDataSources) {
+        if([target floatValue] > [maxTarget floatValue]){
+            maxTarget = target;
+        }
+    }
+
+    if([maxTarget floatValue] > [max floatValue]){
+        return [maxTarget floatValue] * 1.3;
+    }
+    
     return [max floatValue] * 1.3;
 }
 

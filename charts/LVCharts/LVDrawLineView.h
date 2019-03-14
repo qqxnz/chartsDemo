@@ -11,14 +11,14 @@
 
 
 NS_ASSUME_NONNULL_BEGIN
-@protocol LVDrawLineViewDelgate
--(void)touchAtIndex:(NSInteger)index;
+@protocol LVDrawLineViewDelegate
+-(void)touchAtIndex:(NSInteger)index withConvertRectTWindow:(CGRect)rect;
 @end
 
 
 @interface LVDrawLineView : UIView
 
-@property (nonatomic,assign) id<LVDrawLineViewDelgate> delegate;
+@property (nonatomic,assign) id<LVDrawLineViewDelegate> delegate;
 
 -(void)setPoint:(NSArray *)array withConfig:(LVLineChartsUIConfig *)conf;
 @end

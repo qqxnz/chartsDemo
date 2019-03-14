@@ -10,7 +10,7 @@
 #import "LVDrawLineView.h"
 #import "LVLineBackGroundView.h"
 
-@interface LVLineChartsView()<LVDrawLineViewDelgate>
+@interface LVLineChartsView()<LVDrawLineViewDelegate,UIScrollViewDelegate>
 @property (nonatomic) UIScrollView *scrollView;
 @property (nonatomic) LVDrawLineView *drawLineView;
 @property (nonatomic) LVLineBackGroundView *lineBackgroundView;
@@ -31,6 +31,7 @@
         _scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(40, 0, self.frame.size.width - 40.0, self.frame.size.height)];
         [_scrollView setShowsVerticalScrollIndicator:NO];
         [_scrollView setShowsHorizontalScrollIndicator:NO];
+        _scrollView.delegate = self;
         [self addSubview:_scrollView];
         _lineCount =  (NSInteger)self.frame.size.height / 50.0;
 
@@ -46,8 +47,8 @@
         [self setHorizontalLine:i];
     }
     
-    NSLog(@"最大值:%f",_data.max);
-    NSLog(@"最小值:%f",_data.min);
+//    JDLog(@"最大值:%f",_data.max);
+//    JDLog(@"最小值:%f",_data.min);
 
     _proportion = (self.frame.size.height - 50.0) / _data.max;
 
@@ -86,14 +87,14 @@
     }
     
     _drawLineView = [[LVDrawLineView alloc] initWithFrame:CGRectMake(0, 0, _config.intervalWidth * _data.dataSources.count, self.frame.size.height - 50)];
-    NSLog(@"嗷嗷嗷:%f", (_lineCount * 50.0) / _data.max );
+//    JDLog(@"嗷嗷嗷:%f", (_lineCount * 50.0) / _data.max );
     [_drawLineView setPoint:_pointArray.copy withConfig:_config];
     _drawLineView.delegate = self;
     [_scrollView addSubview:_drawLineView];
     
     _scrollView.contentSize = CGSizeMake(_drawLineView.bounds.size.width, _scrollView.bounds.size.height);
-    
-    
+
+
     _lineBackgroundView = [[LVLineBackGroundView alloc] initWithFrame:_drawLineView.frame];
     
     [_lineBackgroundView setPoint:_pointArray.copy];
@@ -139,7 +140,7 @@
     [self addSubview:lab];
     
     ///水平线
-    UIView * line = [[UIView alloc]initWithFrame:CGRectMake(40, self.frame.size.height - i * 50.0, self.bounds.size.width, 1)];
+    UIView * line = [[UIView alloc]initWithFrame:CGRectMake(40, self.frame.size.height - i * 50.0, self.bounds.size.width - 40, 1)];
     [line setBackgroundColor:[UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.1]];
     [self addSubview:line];
     
@@ -167,8 +168,62 @@
     gl.mask = _lineBackgroundView.layer;
 }
 
-- (void)touchAtIndex:(NSInteger)index{
-    NSLog(@"点击%ld",index);
+- (void)touchAtIndex:(NSInteger)index withConvertRectTWindow:(CGRect)rect{
+    
+    [self.delegate touchAtIndex:index withConvertRectTWindow:rect];
+    
 }
+
+-(void)scrollAtIndex:(NSInteger)index{
+    if(index > _pointArray.count){
+        return;
+    }
+    
+    NSValue * value = (NSValue *)_pointArray[index - 1];
+    
+//    JDLog(@"滑动宽度： %f",_drawLineView.bounds.size.width);
+//    JDLog(@"图表宽度： %f",_scrollView.bounds.size.width);
+//    JDLog(@"滑动位置： %f",[value CGPointValue].x);
+    if(_drawLineView.bounds.size.width -  _scrollView.bounds.size.width <  [value CGPointValue].x){
+        [_scrollView setContentOffset:CGPointMake(_drawLineView.bounds.size.width -  _scrollView.bounds.size.width, 0) animated:YES];
+    }else{
+        [_scrollView setContentOffset:CGPointMake([value CGPointValue].x, 0) animated:YES];
+    }
+    
+    
+}
+
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+//    JDLog(@"滑动监听：%f ",scrollView.contentOffset.x);
+    
+    int startIndex = 0;
+    CGFloat betweenMin = _scrollView.bounds.size.width;
+    for(int i = 0 ; i < _pointArray.count ; i++){
+        NSValue *value = (NSValue *) _pointArray[i];
+        float between = fabsf((float)[value CGPointValue].x - (float)(scrollView.contentOffset.x +_config.intervalWidth * 0.5));///增加偏移量
+        if(between < betweenMin){
+            betweenMin = between;
+            startIndex = i;
+        }
+    }
+    
+//    JDLog(@"滑动监听数据StartIndex：%d ",startIndex);
+    
+    int endIndex = 0;
+    betweenMin = _scrollView.bounds.size.width;
+    for(int i = (int)(_pointArray.count - 1) ; i >= 0 ; i--){
+        NSValue *value = (NSValue *) _pointArray[i];
+        float between = fabsf((float)[value CGPointValue].x - (float)(scrollView.contentOffset.x + _scrollView.bounds.size.width - _config.intervalWidth * 0.5));///增加偏移量
+        if(between < betweenMin){
+            betweenMin = between;
+            endIndex = i;
+        }
+    }
+    
+//    JDLog(@"滑动监听数据EndIndex：%d ",endIndex);
+    [self.delegate scrollDidAtStartIndex:startIndex withEndIndex:endIndex];
+}
+
 
 @end
